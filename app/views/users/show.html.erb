@@ -9,10 +9,24 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
 </div>
-
-<p>名前：<%= @user.name %></p>
-<p>メールアドレス：<%= @user.email %></p>
-<p>作成日時：<%= @user.created_at %></p>
-<p>更新日時：<%= @user.updated_at %></p>
-<p>時刻：<%= Time.now %></p>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-8">
+    <p>名前：<%= @user.name %></p>
+    <p>メールアドレス：<%= @user.email %></p>
+    <p>作成日時：<%= @user.created_at %></p>
+    <p>更新日時：<%= @user.updated_at %></p>
+    <p>時刻：<%= Time.now %></p>
+  </div>
+</div>
